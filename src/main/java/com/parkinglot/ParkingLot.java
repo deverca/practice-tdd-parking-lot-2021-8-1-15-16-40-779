@@ -16,10 +16,12 @@ public class ParkingLot {
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-        usedTickets.add(parkingTicket);
+        Car returnCar = parkedPosition.get(parkingTicket);
+
         if (!usedTickets.contains(parkingTicket)) {
             parkedPosition.remove(parkingTicket);
-            return parkedPosition.get(parkingTicket);
+            usedTickets.add(parkingTicket);
+            return returnCar;
         }
         return null;
     }
