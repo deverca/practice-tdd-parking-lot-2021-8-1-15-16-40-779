@@ -14,7 +14,7 @@ Given a parking lot with two parked cars and two parking tickets
 When fetch twice
 Then return the right car to each customer
 
-[] Case4
+[X] Case4
 Given a parking lot and wrong ticket
 When fetch the car
 Then return no car
