@@ -9,7 +9,7 @@ Given a parking lot and parking ticket
 When fetch the car
 Then return the corresponding car 
 
-[] Case3
+[X] Case3
 Given a parking lot with two parked cars and two parking tickets
 When fetch twice
 Then return the right car to each customer

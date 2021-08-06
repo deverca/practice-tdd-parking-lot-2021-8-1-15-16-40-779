@@ -29,9 +29,6 @@ public class ParkingLotTest {
         //then
         assertEquals(car, actualCar);
     }
-//    Given a parking lot with two parked cars and two parking tickets
-//    When fetch twice
-//    Then return the right car to each customer
 
     @Test
     public void should_return_the_right_car_when_fetch_twice_given_a_parking_lot_with_two_parked_cars_and_two_parking_tickets() {
