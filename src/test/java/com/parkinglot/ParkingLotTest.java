@@ -18,9 +18,6 @@ public class ParkingLotTest {
 
     }
 
-    //    Given a parking lot and parking ticket
-//    When fetch the car
-//    Then return the corresponding car
     @Test
     public void should_return_car_when_fetch_given_a_parking_lot_and_ticket() {
         //given
@@ -32,6 +29,24 @@ public class ParkingLotTest {
         //then
         assertEquals(car, actualCar);
     }
+//    Given a parking lot with two parked cars and two parking tickets
+//    When fetch twice
+//    Then return the right car to each customer
 
+    @Test
+    public void should_return_the_right_car_when_fetch_twice_given_a_parking_lot_with_two_parked_cars_and_two_parking_tickets() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        Car carmsCar = new Car();
+        Car luiseCar = new Car();
+        ParkingTicket carmsParkingTicket = parkingLot.park(carmsCar);
+        ParkingTicket luiseParkingTicket = parkingLot.park(luiseCar);
+        //when
+        Car actualCarmsCar = parkingLot.fetch(carmsParkingTicket);
+        Car actualLuiseCar = parkingLot.fetch(luiseParkingTicket);
+        //then
+        assertEquals(carmsCar, actualCarmsCar);
+        assertEquals(actualLuiseCar, actualLuiseCar);
+    }
 
 }
