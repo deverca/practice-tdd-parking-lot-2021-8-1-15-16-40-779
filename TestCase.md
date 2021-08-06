@@ -24,7 +24,7 @@ Given a parking lot and used ticket
 When fetch the car
 Then return no car
 
-[]Case6
+[X]Case6
 Given a parking lot and a car and maximum capacity
 When park the car
 Then return no ticket

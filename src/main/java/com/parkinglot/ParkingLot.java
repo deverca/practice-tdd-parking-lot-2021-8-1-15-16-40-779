@@ -7,11 +7,16 @@ import java.util.Map;
 
 public class ParkingLot {
 
+    public static final int CAPACITY = 10;
     Map<ParkingTicket, Car> parkedPosition = new HashMap<>();
+
     public ParkingTicket park(Car car) {
-        ParkingTicket parkingTicket = new ParkingTicket();
-        parkedPosition.put(parkingTicket, car);
-        return parkingTicket;
+        if (parkedPosition.size() < CAPACITY) {
+            ParkingTicket parkingTicket = new ParkingTicket();
+            parkedPosition.put(parkingTicket, car);
+            return parkingTicket;
+        }
+        return null;
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
