@@ -72,5 +72,18 @@ public class ParkingLotTest {
         //then
         assertNull(secondCarFetch);
     }
+    @Test
+    public void should_return_null_ticket_when_park_given_a_parking_lot_a_car_and_maximum_capacity() {
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        Car car = new Car();
+        for (int i = 0; i < 10; i++) {
+            parkingLot.park(new Car());
+        }
+        //when
+        ParkingTicket parkingTicket = parkingLot.park(car);
+        //then
+        assertNull(parkingTicket);
 
+    }
 }
