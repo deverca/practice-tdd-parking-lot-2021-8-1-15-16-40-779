@@ -57,9 +57,6 @@ public class ParkingLotTest {
         assertNull(actualCar);
     }
 
-    //    Given a parking lot and used ticket
-//    When fetch the car
-//    Then return no car
     @Test
     public void should_return_null_car_when_fetch_given_a_parking_lot_and_used_ticket() {
         //given
@@ -72,6 +69,7 @@ public class ParkingLotTest {
         //then
         assertNull(secondCarFetch);
     }
+
     @Test
     public void should_return_null_ticket_when_park_given_a_parking_lot_a_car_and_maximum_capacity() {
         //given

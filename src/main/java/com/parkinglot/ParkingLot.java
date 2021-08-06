@@ -6,9 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 public class ParkingLot {
-    Map<ParkingTicket, Car> parkedPosition = new HashMap<>();
-    List<ParkingTicket> usedTickets = new ArrayList<>();
 
+    Map<ParkingTicket, Car> parkedPosition = new HashMap<>();
     public ParkingTicket park(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket();
         parkedPosition.put(parkingTicket, car);
@@ -16,11 +15,9 @@ public class ParkingLot {
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-        Car returnCar = parkedPosition.get(parkingTicket);
-
-        if (!usedTickets.contains(parkingTicket)) {
+        if (parkedPosition.containsKey(parkingTicket)) {
+            Car returnCar = parkedPosition.get(parkingTicket);
             parkedPosition.remove(parkingTicket);
-            usedTickets.add(parkingTicket);
             return returnCar;
         }
         return null;
