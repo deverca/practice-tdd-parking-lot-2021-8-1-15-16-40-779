@@ -31,7 +31,7 @@ public class SmartParkingBoyTest {
     }
 
     @Test
-    public void should_return_the_right_car_when_fetch_twice_given_a_parking_lot_with_two_parked_cars_and_two_parking_tickets_and_parking_boy() {
+    public void should_return_the_right_car_when_fetch_twice_given_a_parking_lot_with_two_parked_cars_and_two_parking_tickets_and_smart_parking_boy() {
         //given
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(new ParkingLot());
         Car carmsCar = new Car();
