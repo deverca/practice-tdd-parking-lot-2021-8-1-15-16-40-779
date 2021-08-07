@@ -207,4 +207,22 @@ public class StandardParkingBoyTest {
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
     }
 
+    @Test
+    public void should_return_error_message_when_fetch_given_multiple_parking_lots_parking_boy_and_used_ticket() {
+        //given
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
+        ParkingTicket parkingTicket = standardParkingBoy.park(new Car());
+        standardParkingBoy.fetch(parkingTicket);
+        //when
+        Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () -> standardParkingBoy.fetch(parkingTicket));
+        //then
+        assertEquals("Unrecognized parking ticket.", exception.getMessage());
+
+    }
+
 }
