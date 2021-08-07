@@ -26,7 +26,7 @@ public class StandardParkingBoy {
                 return parkingLot.park(car);
             }
         }
-        return null;
+        throw  new NoAvailablePositionException();
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
