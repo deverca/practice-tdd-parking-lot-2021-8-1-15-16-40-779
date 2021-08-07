@@ -148,13 +148,13 @@ Given a parking lot with a parked car, a smart parking boy, and a parking ticket
 When fetch the car  
 Then return a parked car
 
-[] Case3
+[X] Case3
 
 Given a parking lot with two parked cars, a smart parking boy, and two parking tickets  
 When fetch the car  
 Then return the right car with each ticket
 
-[] Case4
+[X] Case4
 
 Given a parking lot, a smart parking boy, and a wrong parking ticket  
 When customer fetch the car  

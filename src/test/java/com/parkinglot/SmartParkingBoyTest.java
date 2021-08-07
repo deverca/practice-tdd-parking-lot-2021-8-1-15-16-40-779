@@ -2,8 +2,7 @@ package com.parkinglot;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SmartParkingBoyTest {
 
@@ -45,5 +44,28 @@ public class SmartParkingBoyTest {
         assertEquals(carmsCar, actualCarmsCar);
         assertEquals(luiseCar, actualLuiseCar);
 
+    }
+
+    @Test
+    public void should_return_error_message_when_fetch_given_parking_lot_standard_parking_boy_and_wrong_ticket() {
+        //given
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(new ParkingLot());
+        ParkingTicket unrecognizedParkingTicket = new ParkingTicket();
+        //when
+        Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () -> smartParkingBoy.fetch(unrecognizedParkingTicket));
+        //then
+        assertEquals("Unrecognized parking ticket.", exception.getMessage());
+    }
+
+    @Test
+    public void should_return_error_message_when_fetch_given_parking_lot_standard_parking_boy_and_used_ticket() {
+        //given
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(new ParkingLot());
+        ParkingTicket parkingTicket = smartParkingBoy.park(new Car());
+        smartParkingBoy.fetch(parkingTicket);
+        //when
+        Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () -> smartParkingBoy.fetch(parkingTicket));
+        //then
+        assertEquals("Unrecognized parking ticket.", exception.getMessage());
     }
 }
