@@ -145,23 +145,6 @@ public class StandardParkingBoyTest {
     }
 
     @Test
-    public void should_return_parked_car_when_fetch_given_multiple_parking_lots_with_parked_car_parking_boy_and_ticket() {
-        //given
-        ParkingLot parkingLot1 = new ParkingLot();
-        ParkingLot parkingLot2 = new ParkingLot();
-        List<ParkingLot> parkingLots = new ArrayList<>();
-        parkingLots.add(parkingLot1);
-        parkingLots.add(parkingLot2);
-        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
-        Car car = new Car();
-        ParkingTicket parkingTicket = standardParkingBoy.park(car);
-        //when
-        Car actualCar = standardParkingBoy.fetch(parkingTicket);
-        //then
-        assertEquals(car, actualCar);
-    }
-
-    @Test
     public void should_return_right_car_when_fetch_twice_given_parking_boy_multiple_parking_lots_with_both_full_capacity_parking_boy_and_two_tickets() {
         //given
         ParkingLot parkingLot1 = new ParkingLot();
