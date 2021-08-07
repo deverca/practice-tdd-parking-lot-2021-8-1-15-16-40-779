@@ -100,7 +100,7 @@ Given a multiple parking lots, standard parking boy, and a car
 When park the car
 Then park in the first parking lot and return parking ticket
 
-[]Case8
+[X]Case8
 
 Given a multiple parking lots with first is full, standard parking boy, and a car
 When park the car

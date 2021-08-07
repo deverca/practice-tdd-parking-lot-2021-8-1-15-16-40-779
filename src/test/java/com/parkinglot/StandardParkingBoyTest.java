@@ -125,4 +125,23 @@ public class StandardParkingBoyTest {
         assertNotNull(parkingTicket);
         assertEquals(standardParkingBoy.getParkingLot(), parkingLot2);
     }
+
+    @Test
+    public void should_return_error_message_when_park_given_multiple_parking_lots_with_all_full_capacity_parking_boy_and_a_car() {
+        //given
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
+        ParkingTicket parkingTicket;
+        for (int i = 0; i < 20; i++) {
+            standardParkingBoy.park(new Car());
+        }
+        //when
+        Exception exception = assertThrows(NoAvailablePositionException.class, () -> standardParkingBoy.park(new Car()));
+        //then
+        assertEquals("No available position", exception.getMessage());
+    }
 }
