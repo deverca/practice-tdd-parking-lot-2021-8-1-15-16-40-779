@@ -93,6 +93,25 @@ Given a parking lot with no space available, a standard parking boy, and a car
 When park the car  
 Then return nothing with error message No Available Position
 
+#Story 4
+[] Case7
+
+Given a multiple parking lots, standard parking boy, and a car
+When park the car
+Then park in the first parking lot and return parking ticket
+
+[]Case8
+
+Given a multiple parking lots, standard parking boy, and a car
+When park the car
+Then park in the first parking lot and return parking ticket
+
+[]Case9
+
+Given a multiple parking lots with full capacity, standard parking boy, and a car
+When park the car
+Then return nothing with error message No Available Position
+
 
 
 

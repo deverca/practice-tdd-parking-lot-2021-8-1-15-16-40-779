@@ -2,6 +2,9 @@ package com.parkinglot;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StandardParkingBoyTest {
@@ -84,6 +87,25 @@ public class StandardParkingBoyTest {
         //then
         assertEquals("No available position", exception.getMessage());
 
+
+    }
+//    Given a multiple parking lots, standard parking boy, and a car
+//    When park the car
+//    Then park in the first parking lot and return parking ticket
+
+    @Test
+    public void should_park_in_first_parking_lot_and_return_ticket_when_park_given_parking_boy_with_multiple_parking_lots_and_a_car() {
+        //given
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
+        //when
+        ParkingTicket parkingTicket = standardParkingBoy.park(new Car());
+        //then
+        assertNotNull(parkingTicket);
 
     }
 }

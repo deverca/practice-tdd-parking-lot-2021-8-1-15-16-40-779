@@ -1,10 +1,15 @@
 package com.parkinglot;
 
+import java.util.List;
+
 public class StandardParkingBoy {
     private ParkingLot parkingLot;
 
     public StandardParkingBoy(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;
+    }
+    public StandardParkingBoy(List<ParkingLot> parkingLots){
+
     }
 
     public ParkingTicket park(Car car) {
