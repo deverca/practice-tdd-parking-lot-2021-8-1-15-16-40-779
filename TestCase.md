@@ -117,8 +117,20 @@ Given multiple parking lot with parked car, standard parking boy, and two parkin
 When fetch twice
 Then return parked car
 
-[]Case11
+[X]Case11
 Given multiple parking lots with full capacity, standard parking boy, and parking ticket for car in parking lot 1
 When fetch
 Then return the right car
+
+[] Case12
+
+Given multiple parking lots, a standard parking boy, and a wrong parking ticket  
+When customer fetch the car  
+Then return error message Unrecognized parking ticket
+
+[] Case13
+
+Given multiple parking lots, a standard parking boy, and used parking ticket  
+When fetch the car  
+Then return error message Unrecognized parking ticket
 
