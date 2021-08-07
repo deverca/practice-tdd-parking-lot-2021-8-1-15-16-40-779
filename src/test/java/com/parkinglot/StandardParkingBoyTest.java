@@ -135,7 +135,6 @@ public class StandardParkingBoyTest {
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
-        ParkingTicket parkingTicket;
         for (int i = 0; i < 20; i++) {
             standardParkingBoy.park(new Car());
         }
@@ -143,5 +142,22 @@ public class StandardParkingBoyTest {
         Exception exception = assertThrows(NoAvailablePositionException.class, () -> standardParkingBoy.park(new Car()));
         //then
         assertEquals("No available position", exception.getMessage());
+    }
+
+    @Test
+    public void should_return_parked_car_when_fetch_given_multiple_parking_lots_with_parked_car_parking_boy_and_ticket() {
+        //given
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
+        Car car = new Car();
+        ParkingTicket parkingTicket = standardParkingBoy.park(car);
+        //when
+        Car actualCar = standardParkingBoy.fetch(parkingTicket);
+        //then
+        assertEquals(car, actualCar);
     }
 }
