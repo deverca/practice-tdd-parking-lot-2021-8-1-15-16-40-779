@@ -46,29 +46,29 @@ public class ParkingLotTest {
         assertEquals(actualLuiseCar, actualLuiseCar);
     }
 
-    @Test
-    public void should_return_null_car_when_fetch_given_a_parking_lot_and_wrong_ticket() {
-        //given
-        ParkingLot parkingLot = new ParkingLot();
-        ParkingTicket parkingTicket = new ParkingTicket();
-        //when
-        Car actualCar = parkingLot.fetch(parkingTicket);
-        //then
-        assertNull(actualCar);
-    }
+//    @Test
+//    public void should_return_null_car_when_fetch_given_a_parking_lot_and_wrong_ticket() {
+//        //given
+//        ParkingLot parkingLot = new ParkingLot();
+//        ParkingTicket parkingTicket = new ParkingTicket();
+//        //when
+//        Car actualCar = parkingLot.fetch(parkingTicket);
+//        //then
+//        assertNull(actualCar);
+//    }
 
-    @Test
-    public void should_return_null_car_when_fetch_given_a_parking_lot_and_used_ticket() {
-        //given
-        ParkingLot parkingLot = new ParkingLot();
-        Car car = new Car();
-        ParkingTicket parkingTicket = parkingLot.park(car);
-        Car firstCarFetch = parkingLot.fetch(parkingTicket);
-        //when
-        Car secondCarFetch = parkingLot.fetch(parkingTicket);
-        //then
-        assertNull(secondCarFetch);
-    }
+//    @Test
+//    public void should_return_null_car_when_fetch_given_a_parking_lot_and_used_ticket() {
+//        //given
+//        ParkingLot parkingLot = new ParkingLot();
+//        Car car = new Car();
+//        ParkingTicket parkingTicket = parkingLot.park(car);
+//        Car firstCarFetch = parkingLot.fetch(parkingTicket);
+//        //when
+//        Car secondCarFetch = parkingLot.fetch(parkingTicket);
+//        //then
+//        assertNull(secondCarFetch);
+//    }
 
     @Test
     public void should_return_null_ticket_when_park_given_a_parking_lot_a_car_and_maximum_capacity() {
@@ -85,11 +85,6 @@ public class ParkingLotTest {
 
     }
 
-//    Case7
-//    Given a parking lot and wrong ticket(unrecognized ticket)
-//    When fetch
-//    Then return error message "Unrecognized parking ticket"
-
     @Test
     public void should_return_error_message_when_fetch_given_a_parking_lot_and_unrecognized_ticket() {
         //given
@@ -102,4 +97,6 @@ public class ParkingLotTest {
 
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
     }
+
+
 }

@@ -25,6 +25,6 @@ public class ParkingLot {
             parkedPosition.remove(parkingTicket);
             return returnCar;
         }
-        return null;
+        throw new UnrecognizedParkingTicketException();
     }
 }

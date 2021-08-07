@@ -37,7 +37,7 @@ Then return no ticket
 
 #Story 2
 
-[]Case7
+[x]Case7
 Given a parking lot and wrong ticket(unrecognized ticket)
 When fetch
 Then return error message "Unrecognized parking ticket"
