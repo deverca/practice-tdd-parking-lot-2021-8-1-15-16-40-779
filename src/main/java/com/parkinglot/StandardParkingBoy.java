@@ -37,6 +37,7 @@ public class StandardParkingBoy {
             if (parkingLot.parkedPosition.containsKey(parkingTicket)) {
                 return parkingLot.fetch(parkingTicket);
             }
+
         }
         throw new UnrecognizedParkingTicketException();
     }

@@ -134,3 +134,10 @@ Given multiple parking lots, a standard parking boy, and used parking ticket
 When fetch the car  
 Then return error message Unrecognized parking ticket
 
+#Story 5
+
+[]Case1
+
+Given a parking lot and a smart parking boy, and a car  
+When park the car  
+Then return a parking ticket
