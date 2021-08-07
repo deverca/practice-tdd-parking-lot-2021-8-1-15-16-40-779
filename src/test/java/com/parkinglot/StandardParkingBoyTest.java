@@ -10,7 +10,7 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_ticket_when_park_given_a_parking_lot_and_a_car() {
         //given
-        StandardParkingBoy standardParkingBoy = new StandardParkingBoy();
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(new ParkingLot());
         Car car = new Car();
         //when
         ParkingTicket parkingTicket = standardParkingBoy.park(car);
