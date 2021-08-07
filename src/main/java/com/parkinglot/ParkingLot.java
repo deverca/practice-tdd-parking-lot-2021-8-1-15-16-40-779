@@ -16,7 +16,7 @@ public class ParkingLot {
             parkedPosition.put(parkingTicket, car);
             return parkingTicket;
         }
-        return null;
+        throw new NoAvailableTicketException();
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
