@@ -9,7 +9,7 @@ public class SmartParkingBoyTest {
     @Test
     public void should_return_ticket_when_park_given_parking_lot_smart_parking_boy_and_car() {
         //given
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(new ParkingLot());
         //when
         ParkingTicket parkingTicket = smartParkingBoy.park(new Car());
         //then
