@@ -3,16 +3,17 @@ package com.parkinglot;
 import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 public class SmartParkingBoy extends StandardParkingBoy {
-    private int capacity;
+
 
     public SmartParkingBoy(ParkingLot parkingLot) {
         super(parkingLot);
     }
 
-    public SmartParkingBoy(List<ParkingLot> parkingLots, int capacity) {
-        super(parkingLots, capacity);
+    public SmartParkingBoy(List<ParkingLot> parkingLots) {
+        super(parkingLots);
     }
 
 
@@ -26,8 +27,10 @@ public class SmartParkingBoy extends StandardParkingBoy {
     }
 
     public ParkingLot getAvailableParkingLot() {
-        return getParkingLots().stream().min(Comparator.comparing(parkingLot -> parkingLot.parkedPosition.size())).orElseThrow(
+        List<ParkingLot> availableParkingLots = getParkingLots().stream().filter(parkingLot -> parkingLot.getCapacity() > 0).collect(Collectors.toList());
+        return availableParkingLots.stream().min(Comparator.comparing(parkingLot -> parkingLot.parkedPosition.size() > 0)).orElseThrow(
                 NoSuchElementException::new);
+
     }
 
 

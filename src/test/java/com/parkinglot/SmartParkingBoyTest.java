@@ -93,18 +93,39 @@ public class SmartParkingBoyTest {
     public void should_park_in_lot_2_and_return_ticket_when_park_given_two_parking_lots_where_lot_2_has_more_space_smart_parking_boy_and_a_car() {
         //given
         List<ParkingLot> parkingLotList = new ArrayList<>();
-        ParkingLot parkingLot1 = new ParkingLot();
-        ParkingLot parkingLot2 = new ParkingLot();
+        ParkingLot parkingLot1 = new ParkingLot(5);
+        ParkingLot parkingLot2 = new ParkingLot(5);
         parkingLotList.add(parkingLot1);
         parkingLotList.add(parkingLot2);
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList, 5);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
         smartParkingBoy.park(new Car());
 
         //when
         smartParkingBoy.park(new Car());
 
         //then
-        assertEquals(parkingLot2,smartParkingBoy.getParkingLot());
+        assertEquals(parkingLot2, smartParkingBoy.getParkingLot());
+
+
+    }
+
+    @Test
+    public void should_park_in_lot_1_and_return_ticket_when_park_given_two_parking_lots_where_lot_1_has_more_space_smart_parking_boy_and_a_car() {
+        //given
+        List<ParkingLot> parkingLotList = new ArrayList<>();
+        ParkingLot parkingLot1 = new ParkingLot(5);
+        ParkingLot parkingLot2 = new ParkingLot(10);
+        parkingLotList.add(parkingLot1);
+        parkingLotList.add(parkingLot2);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
+        for (int i = 0; i < 6; i++) {
+            smartParkingBoy.park(new Car());
+        }
+        //when
+        smartParkingBoy.park(new Car());
+
+        //then
+        assertEquals(parkingLot2, smartParkingBoy.getParkingLot());
 
 
     }

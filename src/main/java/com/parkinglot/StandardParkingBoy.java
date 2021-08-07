@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StandardParkingBoy {
-    public int capacity = 10;
     private ParkingLot parkingLot;
+
 
     private List<ParkingLot> parkingLots = new ArrayList<>();
 
@@ -13,14 +13,15 @@ public class StandardParkingBoy {
         this.parkingLot = parkingLot;
     }
 
-    public StandardParkingBoy(List<ParkingLot> parkingLots, int capacity) {
-        this.parkingLots = parkingLots;
-        this.capacity = capacity;
-
-    }
-
     public StandardParkingBoy(List<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
+    }
+
+    public StandardParkingBoy(List<ParkingLot> parkingLots, int capacity) {
+        for (ParkingLot parkingLot : parkingLots) {
+            this.parkingLot = parkingLot;
+            parkingLot.setCapacity(capacity);
+        }
     }
 
     public ParkingTicket park(Car car) {
@@ -28,7 +29,7 @@ public class StandardParkingBoy {
             return parkingLot.park(car);
         }
         for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.parkedPosition.size() < capacity) {
+            if (parkingLot.parkedPosition.size() < parkingLot.getCapacity()) {
                 this.parkingLot = parkingLot;
                 return parkingLot.park(car);
             }
@@ -62,6 +63,6 @@ public class StandardParkingBoy {
     }
 
     public void setCapacity(int capacity) {
-        this.capacity = capacity;
+        parkingLot.setCapacity(capacity);
     }
 }
