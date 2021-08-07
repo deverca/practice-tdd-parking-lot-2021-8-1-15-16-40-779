@@ -1,8 +1,6 @@
 package com.parkinglot;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class ParkingLot {
@@ -16,7 +14,7 @@ public class ParkingLot {
             parkedPosition.put(parkingTicket, car);
             return parkingTicket;
         }
-        throw new NoAvailableTicketException();
+        throw new NoAvailablePositionException();
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
