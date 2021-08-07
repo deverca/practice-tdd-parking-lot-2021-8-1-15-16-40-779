@@ -89,6 +89,7 @@ public class StandardParkingBoyTest {
 
 
     }
+
     @Test
     public void should_park_in_first_parking_lot_and_return_ticket_when_park_given_parking_boy_with_multiple_parking_lots_and_a_car() {
         //given
@@ -103,5 +104,24 @@ public class StandardParkingBoyTest {
         //then
         assertNotNull(parkingTicket);
 
+    }
+
+    @Test
+    public void should_park_in_second_parking_lot_and_return_parking_ticket_when_park_given_multiple_parking_lots_with_first_is_full_parking_boy_and_a_car() {
+        //given
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
+        for (int i = 0; i < 10; i++) {
+            standardParkingBoy.park(new Car());
+        }
+        //when
+        ParkingTicket parkingTicket = standardParkingBoy.park(new Car());
+        //then
+        assertNotNull(parkingTicket);
+        assertEquals(standardParkingBoy.getParkingLot(), parkingLot2);
     }
 }

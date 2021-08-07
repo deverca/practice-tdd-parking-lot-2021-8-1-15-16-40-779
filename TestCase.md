@@ -94,7 +94,7 @@ When park the car
 Then return nothing with error message No Available Position
 
 #Story 4
-[] Case7
+[X] Case7
 
 Given a multiple parking lots, standard parking boy, and a car
 When park the car
@@ -102,9 +102,9 @@ Then park in the first parking lot and return parking ticket
 
 []Case8
 
-Given a multiple parking lots, standard parking boy, and a car
+Given a multiple parking lots with first is full, standard parking boy, and a car
 When park the car
-Then park in the first parking lot and return parking ticket
+Then park in the second parking lot and return parking ticket
 
 []Case9
 

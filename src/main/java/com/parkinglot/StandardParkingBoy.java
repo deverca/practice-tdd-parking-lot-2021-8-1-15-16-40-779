@@ -12,10 +12,7 @@ public class StandardParkingBoy {
 
     public StandardParkingBoy(List<ParkingLot> parkingLots) {
         for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.parkedPosition.size() < CAPACITY) {
                 this.parkingLot = parkingLot;
-                break;
-            }
         }
 
     }
@@ -26,5 +23,9 @@ public class StandardParkingBoy {
 
     public Car fetch(ParkingTicket parkingTicket) {
         return parkingLot.fetch(parkingTicket);
+    }
+
+    public ParkingLot getParkingLot() {
+        return parkingLot;
     }
 }
