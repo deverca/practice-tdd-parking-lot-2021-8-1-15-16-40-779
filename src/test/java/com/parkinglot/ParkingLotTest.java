@@ -116,6 +116,9 @@ public class ParkingLotTest {
     public void should_return_error_message_when_park_given_a_parking_lot_without_any_position_and_a_car() {
         //given
         ParkingLot parkingLot = new ParkingLot();
+        for (int i = 0; i < 10; i++) {
+            parkingLot.park(new Car());
+        }
         //when
         Exception exception = assertThrows(NoAvailableTicketException.class, () -> parkingLot.park(new Car()));
         //then
