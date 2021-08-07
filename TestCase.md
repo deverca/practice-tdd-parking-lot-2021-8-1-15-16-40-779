@@ -42,7 +42,7 @@ Given a parking lot and wrong ticket(unrecognized ticket)
 When fetch
 Then return error message "Unrecognized parking ticket"
 
-[]Case8
+[X]Case8
 Given a parking lot and wrong ticket(used ticket)
 When fetch the car
 Then return error message "Unrecognized parking ticket"
