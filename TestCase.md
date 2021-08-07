@@ -87,7 +87,7 @@ Given a parking lot, a standard parking boy, and used parking ticket
 When fetch the car  
 Then return error message Unrecognized parking ticket
 
-[] Case6
+[X] Case6
 
 Given a parking lot with no space available, a standard parking boy, and a car  
 When park the car  
