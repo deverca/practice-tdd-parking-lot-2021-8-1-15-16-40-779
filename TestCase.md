@@ -171,7 +171,7 @@ Then return error message Unrecognized parking ticket
 Given a parking lot with no space available, a smart parking boy, and a car  
 When park the car  
 Then return nothing with error message No Available Position
-[]Case 7
+[X]Case 7
 
 Given two parking lot where lot 2 has more space a smart parking boy and a car
 When park 

@@ -97,14 +97,14 @@ public class SmartParkingBoyTest {
         ParkingLot parkingLot2 = new ParkingLot();
         parkingLotList.add(parkingLot1);
         parkingLotList.add(parkingLot2);
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList, 5);
         smartParkingBoy.park(new Car());
 
         //when
         smartParkingBoy.park(new Car());
 
         //then
-        assertEquals(smartParkingBoy.getParkingLot(), parkingLot2);
+        assertEquals(parkingLot2,smartParkingBoy.getParkingLot());
 
 
     }
