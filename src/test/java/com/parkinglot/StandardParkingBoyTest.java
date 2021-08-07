@@ -160,4 +160,39 @@ public class StandardParkingBoyTest {
         //then
         assertEquals(car, actualCar);
     }
+
+    //    Given multiple parking lots with full capacity, standard parking boy, and parking ticket for car in parking lot 1
+//    When fetch
+//    Then return the right car
+    @Test
+    public void should_return_right_car_when_fetch_twice_given_parking_boy_multiple_parking_lots_with_both_full_capacity_parking_boy_and_ticket() {
+        //given
+        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot2 = new ParkingLot();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
+        Car carmsCar = new Car();
+        Car luiseCar = new Car();
+        ParkingTicket carmsParkingTicket = new ParkingTicket();
+        ParkingTicket luiseParkingTicket = new ParkingTicket();
+        for (int i = 0; i < 20; i++) {
+            if (i == 9) {
+                carmsParkingTicket = standardParkingBoy.park(carmsCar);
+            } else if (i == 19) {
+                luiseParkingTicket = standardParkingBoy.park(luiseCar);
+            } else {
+                standardParkingBoy.park(new Car());
+            }
+        }
+        //when
+        Car actualCarmsCar = standardParkingBoy.fetch(carmsParkingTicket);
+        Car actualLuiseCar = standardParkingBoy.fetch(luiseParkingTicket);
+        //then
+        assertEquals(carmsCar, actualCarmsCar);
+        assertEquals(luiseCar, actualLuiseCar);
+
+    }
+
 }
