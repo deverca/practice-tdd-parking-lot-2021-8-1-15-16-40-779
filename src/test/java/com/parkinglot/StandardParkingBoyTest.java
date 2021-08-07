@@ -89,10 +89,6 @@ public class StandardParkingBoyTest {
 
 
     }
-//    Given a multiple parking lots, standard parking boy, and a car
-//    When park the car
-//    Then park in the first parking lot and return parking ticket
-
     @Test
     public void should_park_in_first_parking_lot_and_return_ticket_when_park_given_parking_boy_with_multiple_parking_lots_and_a_car() {
         //given

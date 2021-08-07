@@ -3,12 +3,20 @@ package com.parkinglot;
 import java.util.List;
 
 public class StandardParkingBoy {
+    public static final int CAPACITY = 10;
     private ParkingLot parkingLot;
 
     public StandardParkingBoy(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;
     }
-    public StandardParkingBoy(List<ParkingLot> parkingLots){
+
+    public StandardParkingBoy(List<ParkingLot> parkingLots) {
+        for (ParkingLot parkingLot : parkingLots) {
+            if (parkingLot.parkedPosition.size() < CAPACITY) {
+                this.parkingLot = parkingLot;
+                break;
+            }
+        }
 
     }
 
