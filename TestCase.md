@@ -166,9 +166,18 @@ Given a parking lot, a smart parking boy, and used parking ticket
 When fetch the car  
 Then return error message Unrecognized parking ticket
 
-[] Case6
+[X] Case6
 
 Given a parking lot with no space available, a smart parking boy, and a car  
 When park the car  
 Then return nothing with error message No Available Position
+[]Case 7
 
+Given two parking lot where lot 2 has more space a smart parking boy and a car
+When park 
+Then park in lot 2 and return a ticket
+
+[]Case 8
+Given two parking lot where lot 1 has more space a smart parking boy and a car
+When park
+Then park in lot 1 and return a ticket
