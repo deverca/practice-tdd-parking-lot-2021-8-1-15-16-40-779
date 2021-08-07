@@ -48,9 +48,9 @@ When fetch the car
 Then return error message "Unrecognized parking ticket"
 
 []Case9
-Given a parking lot 
+Given a parking lot without any position
 When park the car
-Then
+Then return error message "No available position"
 
 
 
