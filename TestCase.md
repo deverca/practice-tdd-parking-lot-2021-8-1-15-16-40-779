@@ -136,8 +136,39 @@ Then return error message Unrecognized parking ticket
 
 #Story 5
 
-[]Case1
+[X]Case1
 
 Given a parking lot and a smart parking boy, and a car  
 When park the car  
 Then return a parking ticket
+
+[]Case2
+
+Given a parking lot with a parked car, a smart parking boy, and a parking ticket  
+When fetch the car  
+Then return a parked car
+
+[] Case3
+
+Given a parking lot with two parked cars, a smart parking boy, and two parking tickets  
+When fetch the car  
+Then return the right car with each ticket
+
+[] Case4
+
+Given a parking lot, a smart parking boy, and a wrong parking ticket  
+When customer fetch the car  
+Then return error message Unrecognized parking ticket
+
+[] Case5
+
+Given a parking lot, a smart parking boy, and used parking ticket  
+When fetch the car  
+Then return error message Unrecognized parking ticket
+
+[] Case6
+
+Given a parking lot with no space available, a smart parking boy, and a car  
+When park the car  
+Then return nothing with error message No Available Position
+
