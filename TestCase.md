@@ -122,7 +122,7 @@ Given multiple parking lots with full capacity, standard parking boy, and parkin
 When fetch
 Then return the right car
 
-[] Case12
+[X] Case12
 
 Given multiple parking lots, a standard parking boy, and a wrong parking ticket  
 When customer fetch the car  

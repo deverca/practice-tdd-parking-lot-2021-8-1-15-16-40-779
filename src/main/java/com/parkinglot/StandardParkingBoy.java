@@ -38,7 +38,7 @@ public class StandardParkingBoy {
                 return parkingLot.fetch(parkingTicket);
             }
         }
-        return null;
+        throw new UnrecognizedParkingTicketException();
     }
 
     public ParkingLot getParkingLot() {
