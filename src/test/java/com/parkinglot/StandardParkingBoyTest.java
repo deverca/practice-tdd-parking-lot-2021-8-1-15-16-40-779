@@ -162,7 +162,7 @@ public class StandardParkingBoyTest {
     }
 
     @Test
-    public void should_return_right_car_when_fetch_twice_given_parking_boy_multiple_parking_lots_with_both_full_capacity_parking_boy_ticket() {
+    public void should_return_right_car_when_fetch_twice_given_parking_boy_multiple_parking_lots_with_both_full_capacity_parking_boy_and_two_tickets() {
         //given
         ParkingLot parkingLot1 = new ParkingLot();
         ParkingLot parkingLot2 = new ParkingLot();
