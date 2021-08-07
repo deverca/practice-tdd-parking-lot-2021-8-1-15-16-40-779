@@ -112,9 +112,9 @@ Given a multiple parking lots with full capacity, standard parking boy, and a ca
 When park the car
 Then return nothing with error message No Available Position
 
-[]Case 10
-Given multiple parking lot with parked car, standard parking boy, and parking ticket
-When fetch 
+[X]Case 10
+Given multiple parking lot with parked car, standard parking boy, and two parking ticket
+When fetch twice
 Then return parked car
 
 []Case11

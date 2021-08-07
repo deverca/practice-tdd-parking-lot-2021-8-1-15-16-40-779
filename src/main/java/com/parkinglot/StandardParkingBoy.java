@@ -26,11 +26,19 @@ public class StandardParkingBoy {
                 return parkingLot.park(car);
             }
         }
-        throw  new NoAvailablePositionException();
+        throw new NoAvailablePositionException();
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-        return parkingLot.fetch(parkingTicket);
+        if (parkingLots.isEmpty()) {
+            return parkingLot.fetch(parkingTicket);
+        }
+        for (ParkingLot parkingLot : parkingLots) {
+            if (parkingLot.parkedPosition.containsKey(parkingTicket)) {
+                return parkingLot.fetch(parkingTicket);
+            }
+        }
+        return null;
     }
 
     public ParkingLot getParkingLot() {

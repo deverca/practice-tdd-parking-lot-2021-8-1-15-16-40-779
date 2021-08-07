@@ -161,11 +161,8 @@ public class StandardParkingBoyTest {
         assertEquals(car, actualCar);
     }
 
-    //    Given multiple parking lots with full capacity, standard parking boy, and parking ticket for car in parking lot 1
-//    When fetch
-//    Then return the right car
     @Test
-    public void should_return_right_car_when_fetch_twice_given_parking_boy_multiple_parking_lots_with_both_full_capacity_parking_boy_and_ticket() {
+    public void should_return_right_car_when_fetch_twice_given_parking_boy_multiple_parking_lots_with_both_full_capacity_parking_boy_ticket() {
         //given
         ParkingLot parkingLot1 = new ParkingLot();
         ParkingLot parkingLot2 = new ParkingLot();
