@@ -14,4 +14,5 @@ public class SmartParkingBoy extends StandardParkingBoy {
     public ParkingTicket park(Car car) {
         return super.park(car);
     }
+
 }
