@@ -115,11 +115,12 @@ public class StandardParkingBoyTest {
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
         StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
+        ParkingTicket parkingTicket;
         for (int i = 0; i < 10; i++) {
             standardParkingBoy.park(new Car());
         }
         //when
-        ParkingTicket parkingTicket = standardParkingBoy.park(new Car());
+        parkingTicket = standardParkingBoy.park(new Car());
         //then
         assertNotNull(parkingTicket);
         assertEquals(standardParkingBoy.getParkingLot(), parkingLot2);
