@@ -50,7 +50,7 @@ public class SmartParkingBoyTest {
     }
 
     @Test
-    public void should_return_error_message_when_fetch_given_parking_lot_standard_parking_boy_and_wrong_ticket() {
+    public void should_return_error_message_when_fetch_given_parking_lot_smart_parking_boy_and_wrong_ticket() {
         //given
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(new ParkingLot());
         ParkingTicket unrecognizedParkingTicket = new ParkingTicket();
@@ -61,7 +61,7 @@ public class SmartParkingBoyTest {
     }
 
     @Test
-    public void should_return_error_message_when_fetch_given_parking_lot_standard_parking_boy_and_used_ticket() {
+    public void should_return_error_message_when_fetch_given_parking_lot_smart_parking_boy_and_used_ticket() {
         //given
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(new ParkingLot());
         ParkingTicket parkingTicket = smartParkingBoy.park(new Car());
@@ -73,7 +73,7 @@ public class SmartParkingBoyTest {
     }
 
     @Test
-    public void should_return_error_message_when_park_given_a_parking_lot_with_no_space_parking_boy_and_a_car() {
+    public void should_return_error_message_when_park_given_a_parking_lot_with_no_space_smart_parking_boy_and_a_car() {
         //given
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(new ParkingLot());
         for (int i = 0; i < 10; i++) {

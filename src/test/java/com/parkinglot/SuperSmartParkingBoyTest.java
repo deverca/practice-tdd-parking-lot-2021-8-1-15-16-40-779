@@ -15,7 +15,7 @@ public class SuperSmartParkingBoyTest {
         assertNotNull(parkingTicket);
     }
     @Test
-    public void should_return_parked_car_when_fetch_given_parking_lot_with_parked_car_super_smart_parking_boy_and_ticket() {
+    public void should_return_parked_car_when_fetch_given_parking_lot_with_parked_car_super_super_smart_parking_boy_and_ticket() {
         //given
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(new ParkingLot());
         Car car = new Car();
@@ -27,7 +27,7 @@ public class SuperSmartParkingBoyTest {
 
     }
     @Test
-    public void should_return_the_right_car_when_fetch_twice_given_a_parking_lot_with_two_parked_cars_and_two_parking_tickets_and_smart_parking_boy() {
+    public void should_return_the_right_car_when_fetch_twice_given_a_parking_lot_with_two_parked_cars_and_two_parking_tickets_and_super_smart_parking_boy() {
         //given
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(new ParkingLot());
         Car carmsCar = new Car();
@@ -43,7 +43,7 @@ public class SuperSmartParkingBoyTest {
 
     }
     @Test
-    public void should_return_error_message_when_fetch_given_parking_lot_standard_parking_boy_and_wrong_ticket() {
+    public void should_return_error_message_when_fetch_given_parking_lot_super_smart_parking_boy_and_wrong_ticket() {
         //given
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(new ParkingLot());
         ParkingTicket unrecognizedParkingTicket = new ParkingTicket();
@@ -53,7 +53,7 @@ public class SuperSmartParkingBoyTest {
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
     }
     @Test
-    public void should_return_error_message_when_fetch_given_parking_lot_standard_parking_boy_and_used_ticket() {
+    public void should_return_error_message_when_fetch_given_parking_lot_super_smart_parking_boy_and_used_ticket() {
         //given
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(new ParkingLot());
         ParkingTicket parkingTicket = superSmartParkingBoy.park(new Car());
@@ -64,7 +64,7 @@ public class SuperSmartParkingBoyTest {
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
     }
     @Test
-    public void should_return_error_message_when_park_given_a_parking_lot_with_no_space_parking_boy_and_a_car() {
+    public void should_return_error_message_when_park_given_a_parking_lot_with_no_space_super_smart_parking_boy_and_a_car() {
         //given
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(new ParkingLot());
         for (int i = 0; i < 10; i++) {
