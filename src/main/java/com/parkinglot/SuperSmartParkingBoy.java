@@ -1,10 +1,14 @@
 package com.parkinglot;
 
-public class SuperSmartParkingBoy {
-    public SuperSmartParkingBoy(ParkingLot parkingLot) {
+import java.util.List;
+
+public class SuperSmartParkingBoy extends StandardParkingBoy {
+    public SuperSmartParkingBoy(List<ParkingLot> parkingLots) {
+        super(parkingLots);
     }
 
-    public ParkingTicket park(Car car) {
-        return null;
+    public SuperSmartParkingBoy(ParkingLot parkingLot) {
+        super(parkingLot);
     }
+
 }
