@@ -177,12 +177,12 @@ Given two parking lot where lot 2 has more space a smart parking boy and a car
 When park 
 Then park in lot 2 and return a ticket
 
-[]Case 8
+[X]Case 8
 Given two parking lot where lot 1 has more space a smart parking boy and a car
 When park
 Then park in lot 1 and return a ticket
 
-[]Case 9
+[X]Case 9
 Given two parking lot with all full capacity, smart parking boy, and a car
 When park 
 Then return No Available Position
