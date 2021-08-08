@@ -129,5 +129,23 @@ public class SmartParkingBoyTest {
 
 
     }
+    @Test
+    public void should_return_error_message_when_park_given_two_parking_lots_with_all_full_capacity_smart_parking_boy_and_a_car() {
+        //given
+        ParkingLot parkingLot1 = new ParkingLot(5);
+        ParkingLot parkingLot2 = new ParkingLot(10);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        for (int i = 0; i < 15; i++) {
+            smartParkingBoy.park(new Car());
+        }
+        //when
+        Exception exception = assertThrows(NoAvailablePositionException.class, () -> smartParkingBoy.park(new Car()));
+        //then
+        assertEquals("No available position", exception.getMessage());
+    }
+
 
 }
