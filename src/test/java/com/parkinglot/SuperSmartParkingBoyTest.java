@@ -2,6 +2,9 @@ package com.parkinglot;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SuperSmartParkingBoyTest {
@@ -75,6 +78,26 @@ public class SuperSmartParkingBoyTest {
 
         //then
         assertEquals("No available position", exception.getMessage());
+
+
+    }
+    @Test
+    public void should_park_in_lot_2_and_return_ticket_when_park_given_two_parking_lots_where_lot_2_has_higher_position_rate_super_smart_parking_boy_and_a_car() {
+        //given
+        List<ParkingLot> parkingLotList = new ArrayList<>();
+        ParkingLot parkingLot1 = new ParkingLot(5);
+        ParkingLot parkingLot2 = new ParkingLot(10);
+        parkingLotList.add(parkingLot1);
+        parkingLotList.add(parkingLot2);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
+        smartParkingBoy.park(new Car());
+        smartParkingBoy.park(new Car());
+
+        //when
+        smartParkingBoy.park(new Car());
+
+        //then
+        assertEquals(parkingLot2, smartParkingBoy.getParkingLot());
 
 
     }
