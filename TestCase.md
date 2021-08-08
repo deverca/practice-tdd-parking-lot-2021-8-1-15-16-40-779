@@ -187,3 +187,20 @@ Given two parking lot with all full capacity, smart parking boy, and a car
 When park 
 Then return No Available Position
 
+[x]Case10
+Given two parking lot with two tickets and smart parking boy
+When fetch twice
+Then return right car
+
+[X]Case11
+Given two parking lots a smart parking boy and unrecognized ticket
+When fetch
+Then Unrecognized parking ticket
+
+[X]Case12 
+Given two parking lots a smart parking boy and used ticket
+When fetch
+Then Unrecognized Parking ticket
+
+
+
