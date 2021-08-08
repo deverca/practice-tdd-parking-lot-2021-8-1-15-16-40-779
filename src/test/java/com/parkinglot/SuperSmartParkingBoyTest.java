@@ -127,5 +127,22 @@ public class SuperSmartParkingBoyTest {
 
 
     }
+    @Test
+    public void should_return_error_message_when_park_given_two_parking_lots_with_all_full_capacity_super_smart_parking_boy_and_a_car() {
+        //given
+        ParkingLot parkingLot1 = new ParkingLot(5);
+        ParkingLot parkingLot2 = new ParkingLot(10);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
+        for (int i = 0; i < 15; i++) {
+            superSmartParkingBoy.park(new Car());
+        }
+        //when
+        Exception exception = assertThrows(NoAvailablePositionException.class, () -> superSmartParkingBoy.park(new Car()));
+        //then
+        assertEquals("No available position", exception.getMessage());
+    }
 
 }
