@@ -189,22 +189,36 @@ Given a parking lot with two parked cars, a super smart parking boy, and two par
 When fetch the car  
 Then return the right car with each ticket
 
-[] Case4
+[X] Case4
 
 Given a parking lot, a super smart parking boy, and a wrong parking ticket  
 When customer fetch the car  
 Then return error message Unrecognized parking ticket
 
-[] Case5
+[X] Case5
 
 Given a parking lot, a super smart parking boy, and used parking ticket  
 When fetch the car  
 Then return error message Unrecognized parking ticket
 
-[] Case6
+[X] Case6
 
 Given a parking lot with no space available, a super smart parking boy, and a car  
 When park the car  
 Then return nothing with error message No Available Position
+[X]Case 7
 
+Given two parking lot where lot 2 has more space a super smart parking boy and a car When park Then park in lot 2 and return a
+ticket
 
+[X]Case 8 Given two parking lot where lot 1 has more space a super smart parking boy and a car When park Then park in lot 1
+and return a ticket
+
+[X]Case 9 Given two parking lot with all full capacity, super smart parking boy, and a car When park Then return No Available
+Position
+
+[x]Case10 Given two parking lot with two tickets and super smart parking boy When fetch twice Then return right car
+
+[X]Case11 Given two parking lots a super smart parking boy and unrecognized ticket When fetch Then Unrecognized parking ticket
+
+[X]Case12 Given two parking lots a super smart parking boy and used ticket When fetch Then Unrecognized Parking ticket

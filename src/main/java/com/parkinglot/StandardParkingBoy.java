@@ -29,7 +29,7 @@ public class StandardParkingBoy {
             return parkingLot.park(car);
         }
         for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.parkedPosition.size() < parkingLot.getAvailable()) {
+            if (parkingLot.getAvailable()>0) {
                 this.parkingLot = parkingLot;
                 return parkingLot.park(car);
             }
