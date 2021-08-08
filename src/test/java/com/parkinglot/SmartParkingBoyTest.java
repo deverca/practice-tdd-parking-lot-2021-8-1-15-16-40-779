@@ -161,11 +161,16 @@ public class SmartParkingBoyTest {
         Car luiseCar = new Car();
         ParkingTicket carmsParkingTicket = new ParkingTicket();
         ParkingTicket luiseParkingTicket = new ParkingTicket();
+        ParkingLot carmsActualParkingLot = new ParkingLot();
+        ParkingLot luiseActualParkingLot = new ParkingLot();
         for (int i = 0; i < 15; i++) {
             if (i == 0) {
                 carmsParkingTicket = smartParkingBoy.park(carmsCar);
+                carmsActualParkingLot = smartParkingBoy.getParkingLot();
+
             } else if (i == 7) {
                 luiseParkingTicket = smartParkingBoy.park(luiseCar);
+                luiseActualParkingLot = smartParkingBoy.getParkingLot();
             } else {
                 smartParkingBoy.park(new Car());
             }
@@ -176,6 +181,8 @@ public class SmartParkingBoyTest {
         //then
         assertEquals(carmsCar, actualCarmsCar);
         assertEquals(luiseCar, actualLuiseCar);
+        assertEquals(parkingLot2,carmsActualParkingLot);
+        assertEquals(parkingLot1,luiseActualParkingLot);
 
     }
 
