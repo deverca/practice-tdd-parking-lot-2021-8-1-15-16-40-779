@@ -6,22 +6,25 @@ import java.util.Map;
 public class ParkingLot {
 
     private int capacity;
+    private int available;
     public static final int CAPACITY_10 = 10;
     Map<ParkingTicket, Car> parkedPosition = new HashMap<>();
 
     public ParkingLot() {
         this.setCapacity(CAPACITY_10);
+        this.available = CAPACITY_10;
     }
 
     public ParkingLot(int capacity) {
         this.setCapacity(capacity);
+        this.available = capacity;
     }
 
     public ParkingTicket park(Car car) {
-        if (capacity > 0) {
+        if (available > 0) {
             ParkingTicket parkingTicket = new ParkingTicket();
             parkedPosition.put(parkingTicket, car);
-            capacity--;
+            available--;
             return parkingTicket;
         }
         throw new NoAvailablePositionException();
@@ -36,15 +39,15 @@ public class ParkingLot {
         throw new UnrecognizedParkingTicketException();
     }
 
-    public int getCapacity() {
-        return capacity;
+    public int getAvailable() {
+        return available;
     }
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 
-    public Map<ParkingTicket, Car> getParkedPosition() {
-        return parkedPosition;
+    public int getCapacity() {
+        return capacity;
     }
 }

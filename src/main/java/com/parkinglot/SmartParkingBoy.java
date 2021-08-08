@@ -26,8 +26,8 @@ public class SmartParkingBoy extends StandardParkingBoy {
     }
 
     public ParkingLot getAvailableParkingLot() {
-          List<ParkingLot> availableParkingLots = getParkingLots().stream().filter(parkingLot -> parkingLot.getCapacity() > 0).collect(Collectors.toList());
-        return availableParkingLots.stream().max(Comparator.comparing(ParkingLot::getCapacity)).orElseThrow(
+          List<ParkingLot> availableParkingLots = getParkingLots().stream().filter(parkingLot -> parkingLot.getAvailable() > 0).collect(Collectors.toList());
+        return availableParkingLots.stream().max(Comparator.comparing(ParkingLot::getAvailable)).orElseThrow(
                 NoAvailablePositionException::new);
 
     }

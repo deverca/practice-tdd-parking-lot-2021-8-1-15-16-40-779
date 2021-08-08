@@ -17,6 +17,7 @@ public class SuperSmartParkingBoyTest {
         //then
         assertNotNull(parkingTicket);
     }
+
     @Test
     public void should_return_parked_car_when_fetch_given_parking_lot_with_parked_car_super_super_smart_parking_boy_and_ticket() {
         //given
@@ -29,6 +30,7 @@ public class SuperSmartParkingBoyTest {
         assertEquals(car, actualCar);
 
     }
+
     @Test
     public void should_return_the_right_car_when_fetch_twice_given_a_parking_lot_with_two_parked_cars_and_two_parking_tickets_and_super_smart_parking_boy() {
         //given
@@ -45,6 +47,7 @@ public class SuperSmartParkingBoyTest {
         assertEquals(luiseCar, actualLuiseCar);
 
     }
+
     @Test
     public void should_return_error_message_when_fetch_given_parking_lot_super_smart_parking_boy_and_wrong_ticket() {
         //given
@@ -55,6 +58,7 @@ public class SuperSmartParkingBoyTest {
         //then
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
     }
+
     @Test
     public void should_return_error_message_when_fetch_given_parking_lot_super_smart_parking_boy_and_used_ticket() {
         //given
@@ -66,6 +70,7 @@ public class SuperSmartParkingBoyTest {
         //then
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
     }
+
     @Test
     public void should_return_error_message_when_park_given_a_parking_lot_with_no_space_super_smart_parking_boy_and_a_car() {
         //given
@@ -81,6 +86,7 @@ public class SuperSmartParkingBoyTest {
 
 
     }
+
     @Test
     public void should_park_in_lot_2_and_return_ticket_when_park_given_two_parking_lots_where_lot_2_has_higher_position_rate_super_smart_parking_boy_and_a_car() {
         //given
@@ -92,12 +98,32 @@ public class SuperSmartParkingBoyTest {
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
         smartParkingBoy.park(new Car());
         smartParkingBoy.park(new Car());
-
         //when
         smartParkingBoy.park(new Car());
 
         //then
         assertEquals(parkingLot2, smartParkingBoy.getParkingLot());
+
+
+    }
+
+    @Test
+    public void should_park_in_lot_1_and_return_ticket_when_park_given_two_parking_lots_where_lot_1_has_higher_position_rate_super_smart_parking_boy_and_a_car() {
+        //given
+        List<ParkingLot> parkingLotList = new ArrayList<>();
+        ParkingLot parkingLot1 = new ParkingLot(5);
+        ParkingLot parkingLot2 = new ParkingLot(10);
+        parkingLotList.add(parkingLot1);
+        parkingLotList.add(parkingLot2);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLotList);
+        for (int i = 0; i < 5; i++) {
+            smartParkingBoy.park(new Car());
+        }
+        //when
+        smartParkingBoy.park(new Car());
+
+        //then
+        assertEquals(parkingLot1, smartParkingBoy.getParkingLot());
 
 
     }
