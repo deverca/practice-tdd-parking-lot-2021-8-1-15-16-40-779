@@ -127,6 +127,7 @@ public class SuperSmartParkingBoyTest {
 
 
     }
+
     @Test
     public void should_return_error_message_when_park_given_two_parking_lots_with_all_full_capacity_super_smart_parking_boy_and_a_car() {
         //given
@@ -144,6 +145,7 @@ public class SuperSmartParkingBoyTest {
         //then
         assertEquals("No available position", exception.getMessage());
     }
+
     @Test
     public void should_return_error_message_when_fetch_given_two_parking_lots_super_smart_parking_boy_and_unrecognized_parking_ticket() {
         //given
@@ -158,6 +160,7 @@ public class SuperSmartParkingBoyTest {
         //then
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
     }
+
     @Test
     public void should_return_error_message_when_fetch_given_multiple_parking_lots_smart_parking_boy_and_used_ticket() {
         //given
@@ -173,6 +176,43 @@ public class SuperSmartParkingBoyTest {
         Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () -> superSmartParkingBoy.fetch(parkingTicket));
         //then
         assertEquals("Unrecognized parking ticket.", exception.getMessage());
+
+    }
+
+    @Test
+    public void should_return_right_car_when_fetch_twice_given_parking_boy_two_parking_lots_with_both_full_capacity_smart_parking_boy_and_two_tickets() {
+        //given
+        ParkingLot parkingLot1 = new ParkingLot(5);
+        ParkingLot parkingLot2 = new ParkingLot(10);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(parkingLot1);
+        parkingLots.add(parkingLot2);
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(parkingLots);
+        Car carmsCar = new Car();
+        Car luiseCar = new Car();
+        ParkingLot carmsActualParkingLot = new ParkingLot();
+        ParkingLot luiseActualParkingLot = new ParkingLot();
+        ParkingTicket carmsParkingTicket = new ParkingTicket();
+        ParkingTicket luiseParkingTicket = new ParkingTicket();
+        for (int i = 0; i < 15; i++) {
+            if (i == 0) {
+                carmsParkingTicket = superSmartParkingBoy.park(carmsCar);
+                carmsActualParkingLot = superSmartParkingBoy.getParkingLot();
+            } else if (i == 5) {
+                luiseParkingTicket = superSmartParkingBoy.park(luiseCar);
+                luiseActualParkingLot = superSmartParkingBoy.getParkingLot();
+            } else {
+                superSmartParkingBoy.park(new Car());
+            }
+        }
+        //when
+        Car actualCarmsCar = superSmartParkingBoy.fetch(carmsParkingTicket);
+        Car actualLuiseCar = superSmartParkingBoy.fetch(luiseParkingTicket);
+        //then
+        assertEquals(carmsCar, actualCarmsCar);
+        assertEquals(luiseCar, actualLuiseCar);
+        assertEquals(parkingLot1, carmsActualParkingLot);
+        assertEquals(parkingLot2, luiseActualParkingLot);
 
     }
 }
