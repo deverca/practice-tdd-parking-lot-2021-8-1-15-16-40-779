@@ -183,7 +183,7 @@ Given a parking lot with a parked car, a super smart parking boy, and a parking 
 When fetch the car  
 Then return a parked car
 
-[] Case3
+[X] Case3
 
 Given a parking lot with two parked cars, a super smart parking boy, and two parking tickets  
 When fetch the car  
