@@ -9,15 +9,7 @@ public class SuperSmartParkingBoy extends StandardParkingBoy {
         super(parkingLots);
     }
 
-//    public SuperSmartParkingBoy(ParkingLot parkingLot) {
-//        super(parkingLot);
-//    }
-
     public ParkingTicket park(Car car) {
-
-        if (getParkingLots().isEmpty()) {
-            return super.park(car);
-        }
         this.setParkingLot(getParkingLots().stream().max(Comparator.comparing(this::getRate)).get());
         return getParkingLot().park(car);
     }
