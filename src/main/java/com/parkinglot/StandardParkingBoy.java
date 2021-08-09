@@ -7,22 +7,15 @@ public class StandardParkingBoy {
     private ParkingLot parkingLot;
 
 
-    private List<ParkingLot> parkingLots = new ArrayList<>();
+    private List<ParkingLot> parkingLots;
 
     public StandardParkingBoy(List<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
     }
 
-    public StandardParkingBoy(List<ParkingLot> parkingLots, int capacity) {
-        for (ParkingLot parkingLot : parkingLots) {
-            this.parkingLot = parkingLot;
-            parkingLot.setCapacity(capacity);
-        }
-    }
-
     public ParkingTicket park(Car car) {
         for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.getAvailable()>0) {
+            if (parkingLot.getAvailable() > 0) {
                 this.parkingLot = parkingLot;
                 return parkingLot.park(car);
             }
