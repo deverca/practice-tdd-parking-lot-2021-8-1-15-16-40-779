@@ -6,21 +6,11 @@ import java.util.stream.Collectors;
 
 public class SmartParkingBoy extends StandardParkingBoy {
 
-
-//    public SmartParkingBoy(ParkingLot parkingLot) {
-//        super(parkingLot);
-//    }
-
     public SmartParkingBoy(List<ParkingLot> parkingLots) {
         super(parkingLots);
     }
 
-
     public ParkingTicket park(Car car) {
-
-        if (getParkingLots().isEmpty()) {
-            return super.park(car);
-        }
         this.setParkingLot(getAvailableParkingLot());
         return getAvailableParkingLot().park(car);
     }
