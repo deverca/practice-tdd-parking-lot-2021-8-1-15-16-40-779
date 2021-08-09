@@ -1,12 +1,9 @@
 package com.parkinglot;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class StandardParkingBoy {
     private ParkingLot parkingLot;
-
-
     private List<ParkingLot> parkingLots;
 
     public StandardParkingBoy(List<ParkingLot> parkingLots) {

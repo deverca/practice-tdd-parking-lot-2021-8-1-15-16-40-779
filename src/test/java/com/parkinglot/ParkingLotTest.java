@@ -8,7 +8,7 @@ public class ParkingLotTest {
     @Test
     public void should_return_parking_ticket_when_park_given_a_parking_lot_and_a_car() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(10);
         Car car = new Car();
         //when
         ParkingTicket parkingTicket = parkingLot.park(car);

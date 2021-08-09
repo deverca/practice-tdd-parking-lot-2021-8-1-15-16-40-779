@@ -3,7 +3,6 @@ package com.parkinglot;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_ticket_when_park_given_a_parking_lot_parking_boy_and_a_car() {
         //given
-        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(Collections.singletonList(new ParkingLot()));
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(Collections.singletonList(new ParkingLot(10)));
         Car car = new Car();
         //when
         ParkingTicket parkingTicket = standardParkingBoy.park(car);
@@ -27,7 +26,7 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_parked_car_when_fetch_given_a_parking_lot_standard_parking_boy_and_ticket() {
         //given
-        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(Collections.singletonList(new ParkingLot()));
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(Collections.singletonList(new ParkingLot(10)));
         Car car = new Car();
         ParkingTicket parkingTicket = standardParkingBoy.park(car);
         //when
@@ -39,7 +38,7 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_the_right_car_when_fetch_twice_given_a_parking_lot_with_two_parked_cars_and_two_parking_tickets_and_parking_boy() {
         //given
-        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(Collections.singletonList(new ParkingLot()));
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(Collections.singletonList(new ParkingLot(10)));
         Car carmsCar = new Car();
         Car luiseCar = new Car();
         ParkingTicket carmsParkingTicket = standardParkingBoy.park(carmsCar);
@@ -56,7 +55,7 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_error_message_when_fetch_given_parking_lot_standard_parking_boy_and_wrong_ticket() {
         //given
-        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(Collections.singletonList(new ParkingLot()));
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(Collections.singletonList(new ParkingLot(10)));
         ParkingTicket unrecognizedParkingTicket = new ParkingTicket();
         //when
         Exception exception = assertThrows(UnrecognizedParkingTicketException.class, () -> standardParkingBoy.fetch(unrecognizedParkingTicket));
@@ -67,7 +66,7 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_error_message_when_fetch_given_parking_lot_standard_parking_boy_and_used_ticket() {
         //given
-        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(Collections.singletonList(new ParkingLot()));
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(Collections.singletonList(new ParkingLot(10)));
         ParkingTicket parkingTicket = standardParkingBoy.park(new Car());
         standardParkingBoy.fetch(parkingTicket);
         //when
@@ -79,7 +78,7 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_error_message_when_park_given_a_parking_lot_with_no_space_parking_boy_and_a_car() {
         //given
-        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(Collections.singletonList(new ParkingLot()));
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(Collections.singletonList(new ParkingLot(10)));
         for (int i = 0; i < 10; i++) {
             standardParkingBoy.park(new Car());
         }
@@ -95,8 +94,8 @@ public class StandardParkingBoyTest {
     @Test
     public void should_park_in_first_parking_lot_and_return_ticket_when_park_given_parking_boy_with_multiple_parking_lots_and_a_car() {
         //given
-        ParkingLot parkingLot1 = new ParkingLot();
-        ParkingLot parkingLot2 = new ParkingLot();
+        ParkingLot parkingLot1 = new ParkingLot(10);
+        ParkingLot parkingLot2 = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
@@ -111,8 +110,8 @@ public class StandardParkingBoyTest {
     @Test
     public void should_park_in_second_parking_lot_and_return_parking_ticket_when_park_given_multiple_parking_lots_with_first_is_full_parking_boy_and_a_car() {
         //given
-        ParkingLot parkingLot1 = new ParkingLot();
-        ParkingLot parkingLot2 = new ParkingLot();
+        ParkingLot parkingLot1 = new ParkingLot(10);
+        ParkingLot parkingLot2 = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
@@ -131,8 +130,8 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_error_message_when_park_given_multiple_parking_lots_with_all_full_capacity_parking_boy_and_a_car() {
         //given
-        ParkingLot parkingLot1 = new ParkingLot();
-        ParkingLot parkingLot2 = new ParkingLot();
+        ParkingLot parkingLot1 = new ParkingLot(10);
+        ParkingLot parkingLot2 = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
@@ -149,8 +148,8 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_right_car_when_fetch_twice_given_parking_boy_multiple_parking_lots_with_both_full_capacity_parking_boy_and_two_tickets() {
         //given
-        ParkingLot parkingLot1 = new ParkingLot();
-        ParkingLot parkingLot2 = new ParkingLot();
+        ParkingLot parkingLot1 = new ParkingLot(10);
+        ParkingLot parkingLot2 = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
@@ -180,8 +179,8 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_error_message_when_fetch_given_multiple_parking_lot_parking_boy_and_unrecognized_parking_ticket() {
         //given
-        ParkingLot parkingLot1 = new ParkingLot();
-        ParkingLot parkingLot2 = new ParkingLot();
+        ParkingLot parkingLot1 = new ParkingLot(10);
+        ParkingLot parkingLot2 = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
@@ -195,8 +194,8 @@ public class StandardParkingBoyTest {
     @Test
     public void should_return_error_message_when_fetch_given_multiple_parking_lots_parking_boy_and_used_ticket() {
         //given
-        ParkingLot parkingLot1 = new ParkingLot();
-        ParkingLot parkingLot2 = new ParkingLot();
+        ParkingLot parkingLot1 = new ParkingLot(10);
+        ParkingLot parkingLot2 = new ParkingLot(10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
