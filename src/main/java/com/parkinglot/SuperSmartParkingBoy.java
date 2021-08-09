@@ -10,8 +10,12 @@ public class SuperSmartParkingBoy extends StandardParkingBoy {
     }
 
     public ParkingTicket park(Car car) {
-        this.setParkingLot(getParkingLots().stream().max(Comparator.comparing(this::getRate)).get());
+        this.setParkingLot(getLotWithHighRate());
         return getParkingLot().park(car);
+    }
+
+    private ParkingLot getLotWithHighRate() {
+        return getParkingLots().stream().max(Comparator.comparing(this::getRate)).get();
     }
 
     public double getRate(ParkingLot parkingLot) {
@@ -21,5 +25,7 @@ public class SuperSmartParkingBoy extends StandardParkingBoy {
         }
         return 0;
     }
+
+
 
 }
