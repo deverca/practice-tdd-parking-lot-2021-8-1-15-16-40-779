@@ -9,9 +9,9 @@ public class SuperSmartParkingBoy extends StandardParkingBoy {
         super(parkingLots);
     }
 
-    public SuperSmartParkingBoy(ParkingLot parkingLot) {
-        super(parkingLot);
-    }
+//    public SuperSmartParkingBoy(ParkingLot parkingLot) {
+//        super(parkingLot);
+//    }
 
     public ParkingTicket park(Car car) {
 

@@ -9,10 +9,6 @@ public class StandardParkingBoy {
 
     private List<ParkingLot> parkingLots = new ArrayList<>();
 
-    public StandardParkingBoy(ParkingLot parkingLot) {
-        this.parkingLot = parkingLot;
-    }
-
     public StandardParkingBoy(List<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
     }
@@ -25,9 +21,6 @@ public class StandardParkingBoy {
     }
 
     public ParkingTicket park(Car car) {
-        if (parkingLots.isEmpty()) {
-            return parkingLot.park(car);
-        }
         for (ParkingLot parkingLot : parkingLots) {
             if (parkingLot.getAvailable()>0) {
                 this.parkingLot = parkingLot;
@@ -38,9 +31,6 @@ public class StandardParkingBoy {
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-        if (parkingLots.isEmpty()) {
-            return parkingLot.fetch(parkingTicket);
-        }
         for (ParkingLot parkingLot : parkingLots) {
             if (parkingLot.parkedPosition.containsKey(parkingTicket)) {
                 return parkingLot.fetch(parkingTicket);
